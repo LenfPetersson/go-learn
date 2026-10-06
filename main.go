@@ -6,7 +6,7 @@ func main() {
 	name := "Max"
 	age := 21
 	fmt.Println(age)
-	age = 21
+	age = 22
 	fmt.Println(age)
 	city := "Novosibirsk"
 	course := 3
