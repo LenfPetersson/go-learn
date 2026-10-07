@@ -3,19 +3,18 @@ package main
 import "fmt"
 
 func main() {
-	age := 21
-	if age >= 18 {
-		fmt.Println("можно голосовать")
-	} else {
-		fmt.Println("ещё рано")
+	for i := 1; i <= 10; i++ {
+		fmt.Println(i)
 	}
-	temperature := 25
-	if temperature < 10 {
-		fmt.Println("холодно")
-	} else if temperature <= 25 {
-		fmt.Println("нормально")
-	} else {
-		fmt.Println("жарко")
+	sum := 0
+	for i := 1; i <= 10; i++ {
+		sum += i
 	}
+	fmt.Println(sum)
 
+	for i := 1; i <= 20; i++ {
+		if i%2 == 0 {
+			fmt.Println(i)
+		}
+	}
 }
