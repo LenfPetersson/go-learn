@@ -3,18 +3,33 @@ package main
 import "fmt"
 
 func main() {
-	for i := 1; i <= 10; i++ {
-		fmt.Println(i)
-	}
-	sum := 0
-	for i := 1; i <= 10; i++ {
-		sum += i
-	}
-	fmt.Println(sum)
+	name1 := "Yana"
+	name2 := "Sasha"
+	greet(name1)
+	greet(name2)
 
-	for i := 1; i <= 20; i++ {
-		if i%2 == 0 {
-			fmt.Println(i)
+	result := square(5)
+	fmt.Println(result)
+	fmt.Println(square(12))
+
+	sum := 0
+
+	for i := 1; i <= 10; i++ {
+		if isEven(i) {
+			sum += i
 		}
 	}
+	fmt.Println(sum)
+}
+
+func greet(name string) {
+	fmt.Println("Привет,", name)
+}
+
+func square(n int) int {
+	return n * n
+}
+
+func isEven(n int) bool {
+	return n%2 == 0
 }
