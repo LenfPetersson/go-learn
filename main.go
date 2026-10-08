@@ -3,21 +3,18 @@ package main
 import "fmt"
 
 func main() {
-	name1 := "Yana"
-	name2 := "Sasha"
-	greet(name1)
-	greet(name2)
+	grades := []int{3, 4, 2, 5, 5}
+	fmt.Println(grades[0])
+	fmt.Println(grades[len(grades)-1])
 
-	result := square(5)
-	fmt.Println(result)
-	fmt.Println(square(12))
+	fmt.Println(len(grades))
+	grades = append(grades, 3)
+	fmt.Println(len(grades))
+	fmt.Println(grades[len(grades)-1])
 
 	sum := 0
-
-	for i := 1; i <= 10; i++ {
-		if isEven(i) {
-			sum += i
-		}
+	for _, value := range grades {
+		sum += value
 	}
 	fmt.Println(sum)
 }
