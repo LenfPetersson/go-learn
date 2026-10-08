@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	grades := []int{3, 4, 2, 5, 5}
+	grades := []int{2, 4, 2, 5, 5}
 	fmt.Println(grades[0])
 	fmt.Println(grades[len(grades)-1])
 
@@ -12,11 +12,14 @@ func main() {
 	fmt.Println(len(grades))
 	fmt.Println(grades[len(grades)-1])
 
-	sum := 0
+	max := grades[0]
 	for _, value := range grades {
-		sum += value
+		if value > max {
+			max = value
+		}
+
 	}
-	fmt.Println(sum)
+	fmt.Println(max)
 }
 
 func greet(name string) {
