@@ -3,10 +3,23 @@ package main
 import "fmt"
 
 func main() {
-	grades := []int{3, 4, 2, 5, 5, 3}
-	fmt.Println(grades[1:4])
-	fmt.Println(grades[:3])
-	fmt.Println(grades[2:])
+	ages := map[string]int{
+		"Kris":   19,
+		"Max":    21,
+		"Kirill": 20,
+	}
+	fmt.Println(len(ages))
+
+	delete(ages, "Max")
+	fmt.Println(len(ages))
+	fmt.Println(ages)
+
+	delete(ages, "Nobody")
+	fmt.Println(len(ages))
+
+	for name, age := range ages {
+		fmt.Println(name, age)
+	}
 }
 
 func greet(name string) {
