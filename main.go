@@ -30,9 +30,32 @@ func positives(nums []int) []int {
 	}
 	return result
 }
+func minMax(nums []int) (int, int) {
+	resultMin := nums[0]
+	resultMax := nums[0]
+
+	for _, v := range nums {
+		if v > resultMax {
+			resultMax = v
+		}
+		if v < resultMin {
+			resultMin = v
+		}
+	}
+	return resultMin, resultMax
+}
 
 func main() {
+	fmt.Println(minMax([]int{-2, 2, 4, 6, 6, 7}))
+
 	fmt.Println(positives([]int{3, -1, 0, 7, -5, 2}))
+
+	task7 := []int{1, 2, 2, 3, 3, 3, 4}
+	counts := map[int]int{}
+	for _, v := range task7 {
+		counts[v]++
+	}
+	fmt.Println(counts)
 
 	result, ok := divide(10, 2)
 	if ok {
