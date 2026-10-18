@@ -77,7 +77,26 @@ func main() {
 			fmt.Println(v)
 		}
 	}
+	book := map[string]string{"Kirill": "333-222", "Maks": "334-767", "Kris": "909-124"}
+	if phone, found := find(book, "Kirill"); found {
+		fmt.Println("телефон :", phone)
+	} else {
+		fmt.Println("такого контакта нет")
+	}
+	if phone, found := find(book, "Anna"); found {
+		fmt.Println("телефон :", phone)
+	} else {
+		fmt.Println("такого контакта нет")
+	}
 
+}
+
+func find(book map[string]string, name string) (string, bool) {
+	if v, ok := book[name]; ok {
+		return v, true
+	} else {
+		return "", false
+	}
 }
 
 func greet(name string) {
