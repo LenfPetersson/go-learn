@@ -46,49 +46,40 @@ func minMax(nums []int) (int, int) {
 }
 
 func main() {
-	fmt.Println(minMax([]int{-2, 2, 4, 6, 6, 7}))
+	p := Person{Name: "Maxim", Age: 21, City: "Novosibirsk"}
+	fmt.Println(p.Name, p.Age)
+	p.Age = 22
+	fmt.Println(p)
 
-	fmt.Println(positives([]int{3, -1, 0, 7, -5, 2}))
+	d := Person{Name: "Kirill"}
+	fmt.Println(d.Age, d.City)
 
-	task7 := []int{1, 2, 2, 3, 3, 3, 4}
-	counts := map[int]int{}
-	for _, v := range task7 {
-		counts[v]++
+	people := []Person{
+		{Name: "Kris", Age: 19, City: "Krasnoyarsk"},
+		{Name: "Artem", Age: 22, City: "Taldikurgan"},
+		{Name: "Danill", Age: 21, City: "Kemerovo"},
 	}
-	fmt.Println(counts)
-
-	result, ok := divide(10, 2)
-	if ok {
-		fmt.Println(result)
-	} else {
-		fmt.Println("на 0 делить нельзя")
+	maxAgePeople := oldest(people)
+	fmt.Println(maxAgePeople)
+	fmt.Println(maxAgePeople.Name)
+	for _, person := range people {
+		fmt.Println(person.Name, "из", person.City)
 	}
-	result1, ok1 := divide(10, 0)
-	if ok1 {
-		fmt.Println(result1)
-	} else {
-		fmt.Println("на 0 делить нельзя")
-	}
-
-	srez := []int{4, 7, 2, 9, 10, 3}
-
-	for _, v := range srez {
-		if v%2 == 0 {
-			fmt.Println(v)
+}
+func oldest(people []Person) Person {
+	best := people[0]
+	for _, person := range people {
+		if person.Age > best.Age {
+			best = person
 		}
 	}
-	book := map[string]string{"Kirill": "333-222", "Maks": "334-767", "Kris": "909-124"}
-	if phone, found := find(book, "Kirill"); found {
-		fmt.Println("телефон :", phone)
-	} else {
-		fmt.Println("такого контакта нет")
-	}
-	if phone, found := find(book, "Anna"); found {
-		fmt.Println("телефон :", phone)
-	} else {
-		fmt.Println("такого контакта нет")
-	}
+	return best
+}
 
+type Person struct {
+	Name string
+	Age  int
+	City string
 }
 
 func find(book map[string]string, name string) (string, bool) {
