@@ -58,14 +58,31 @@ func main() {
 		{Name: "Kris", Age: 19, City: "Krasnoyarsk"},
 		{Name: "Artem", Age: 22, City: "Taldikurgan"},
 		{Name: "Danill", Age: 21, City: "Kemerovo"},
+		{Name: "Petr", Age: 16, City: "Abakan"},
 	}
 	maxAgePeople := oldest(people)
 	fmt.Println(maxAgePeople)
 	fmt.Println(maxAgePeople.Name)
+
 	for _, person := range people {
 		fmt.Println(person.Name, "из", person.City)
 	}
+
+	for _, person := range people {
+		if isAdult(person) {
+			fmt.Println(person.Name)
+		}
+	}
 }
+
+func isAdult(p Person) bool {
+	if p.Age >= 18 {
+		return true
+	} else {
+		return false
+	}
+}
+
 func oldest(people []Person) Person {
 	best := people[0]
 	for _, person := range people {
