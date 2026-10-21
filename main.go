@@ -45,20 +45,32 @@ func minMax(nums []int) (int, int) {
 	return resultMin, resultMax
 }
 
+type Person struct {
+	Name string
+	Age  int
+	City string
+}
+
+func (p Person) IsAdult() bool {
+	if p.Age >= 18 {
+		return true
+	} else {
+		return false
+	}
+}
+
 func main() {
-
 	people := []Person{
-		{Name: "Kris", Age: 19, City: "Krasnoyarsk"},
-		{Name: "Artem", Age: 22, City: "Taldikurgan"},
-		{Name: "Danill", Age: 21, City: "Kemerovo"},
-		{Name: "Petr", Age: 16, City: "Abakan"},
+		{Name: "Kris", Age: 17, City: "Krasnoyarsk"},
+		{Name: "Artem", Age: 25, City: "Taldikurgan"},
 	}
 
-	for _, person := range people {
-		if isAdult(person) {
-			fmt.Println(person.Name)
-		}
+	for _, v := range people {
+
+		fmt.Println(v.Name, ":", v.IsAdult())
+
 	}
+
 	tovari := []Product{
 		{Name: "Pizza", Price: 133.2, InSock: true},
 		{Name: "Banana", Price: 99, InSock: true},
@@ -81,14 +93,6 @@ type Product struct {
 	InSock bool
 }
 
-func isAdult(p Person) bool {
-	if p.Age >= 18 {
-		return true
-	} else {
-		return false
-	}
-}
-
 func oldest(people []Person) Person {
 	best := people[0]
 	for _, person := range people {
@@ -97,12 +101,6 @@ func oldest(people []Person) Person {
 		}
 	}
 	return best
-}
-
-type Person struct {
-	Name string
-	Age  int
-	City string
 }
 
 func find(book map[string]string, name string) (string, bool) {
