@@ -46,13 +46,6 @@ func minMax(nums []int) (int, int) {
 }
 
 func main() {
-	p := Person{Name: "Maxim", Age: 21, City: "Novosibirsk"}
-	fmt.Println(p.Name, p.Age)
-	p.Age = 22
-	fmt.Println(p)
-
-	d := Person{Name: "Kirill"}
-	fmt.Println(d.Age, d.City)
 
 	people := []Person{
 		{Name: "Kris", Age: 19, City: "Krasnoyarsk"},
@@ -60,19 +53,32 @@ func main() {
 		{Name: "Danill", Age: 21, City: "Kemerovo"},
 		{Name: "Petr", Age: 16, City: "Abakan"},
 	}
-	maxAgePeople := oldest(people)
-	fmt.Println(maxAgePeople)
-	fmt.Println(maxAgePeople.Name)
-
-	for _, person := range people {
-		fmt.Println(person.Name, "из", person.City)
-	}
 
 	for _, person := range people {
 		if isAdult(person) {
 			fmt.Println(person.Name)
 		}
 	}
+	tovari := []Product{
+		{Name: "Pizza", Price: 133.2, InSock: true},
+		{Name: "Banana", Price: 99, InSock: true},
+		{Name: "Apple", Price: 122.8, InSock: false},
+		{Name: "Potato", Price: 14, InSock: false},
+	}
+	count := 0.0
+
+	for _, v := range tovari {
+		if v.InSock {
+			count += v.Price
+		}
+	}
+	fmt.Println(count)
+}
+
+type Product struct {
+	Name   string
+	Price  float64
+	InSock bool
 }
 
 func isAdult(p Person) bool {
