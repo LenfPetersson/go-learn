@@ -55,6 +55,14 @@ func (p Person) Greeting() string {
 	return "Привет, меня зовут " + p.Name + ", я из " + p.City
 }
 
+func (p Person) IsOlderThan(age int) bool {
+	if p.Age > age {
+		return true
+	} else {
+		return false
+	}
+}
+
 func (p Person) IsAdult() bool {
 	if p.Age >= 18 {
 		return true
@@ -67,6 +75,9 @@ func main() {
 	people := []Person{
 		{Name: "Kris", Age: 17, City: "Krasnoyarsk"},
 		{Name: "Artem", Age: 25, City: "Taldikurgan"},
+	}
+	for _, v := range people {
+		fmt.Println(v.Name, ":", v.IsOlderThan(20))
 	}
 
 	for _, v := range people {
