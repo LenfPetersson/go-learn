@@ -51,6 +51,10 @@ type Person struct {
 	City string
 }
 
+func (p Person) Greeting() string {
+	return "Привет, меня зовут " + p.Name + ", я из " + p.City
+}
+
 func (p Person) IsAdult() bool {
 	if p.Age >= 18 {
 		return true
@@ -65,6 +69,9 @@ func main() {
 		{Name: "Artem", Age: 25, City: "Taldikurgan"},
 	}
 
+	for _, v := range people {
+		fmt.Println(v.Greeting())
+	}
 	for _, v := range people {
 
 		fmt.Println(v.Name, ":", v.IsAdult())
