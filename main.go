@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+	"math"
+)
 
 func grade(score int) string {
 	if score >= 90 {
@@ -71,7 +75,22 @@ func (p Person) IsAdult() bool {
 	}
 }
 
+func sqrtSafe(x float64) (float64, error) {
+	if x >= 0 {
+		return math.Sqrt(x), nil
+	} else {
+		return 0, errors.New("нельзя извлечь корень из отрицательного числа")
+	}
+}
+
 func main() {
+	result, err := sqrtSafe(-2)
+	if err != nil {
+		fmt.Println("Ошибка:", err)
+	} else {
+		fmt.Println("Корень:", result)
+	}
+
 	people := []Person{
 		{Name: "Kris", Age: 17, City: "Krasnoyarsk"},
 		{Name: "Artem", Age: 25, City: "Taldikurgan"},
